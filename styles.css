@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+nav {
+  background-color: #424242;
+  width: 100%;
+  font-size: 1.5rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 260px;
+  padding: 25px;
+}
+nav .logo:hover {
+  background-color: #7e7e7e5f;
+}
+nav span:nth-child(2) {
+  font-weight: bold;
+  padding: 0 10px;
+}
+.github-profile {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.github-profile:hover {
+  background-color: #2e2e2e;
+}
+.github-profile a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/********************************* search-bar *********************************/
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 30px 0;
+  border-bottom: solid 1px #424242;
+}
+.search-bar-container input {
+  padding: 10px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  width: 350px;
+  background-color: inherit;
+  border: none;
+  border-bottom: solid 1px #fff;
+  color: #fff;
+}
+.search-bar-container input::placeholder {
+  color: #fff;
+}
+.search-bar-container input:focus {
+  outline: none;
+}
+
+.search-icon button {
+  background-color: #212121;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 20px;
+  cursor: pointer;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.search-icon button:hover {
+  background-color: #404040;
+}
+
+.search-icon span {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+
+/********************************* content *********************************/
+.content {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/********************************************/
+.weather-card {
+  /* width: 300px; */
+  color: #ddd;
+}
+/********************************************/
+.first-row,
+.second-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5e35b1;
+  padding: 13px;
+  font-weight: bold;
+}
+.first-row {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.first-row .city-name {
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 5px;
+}
+.first-row .date {
+  font-size: 0.9rem;
+  padding: 0 5px;
+}
+.first-row .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.first-row .description span {
+  font-size: 2.5rem;
+  padding: 5px;
+}
+.first-row .description p {
+  font-size: 0.9rem;
+}
+/********************************************/
+.second-row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  gap: 20px;
+  background-color: #757575;
+  font-weight: normal;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.temperature p {
+  font-size: 2.7rem;
+}
+.details {
+  background-color: #333;
+  padding: 8px;
+  border-radius: 5px;
+}
+.details p {
+  padding: 5px;
+}
