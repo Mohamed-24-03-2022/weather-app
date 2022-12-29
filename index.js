@@ -29,7 +29,11 @@ const createWeatherCard = (data) => {
   // creating the card container
   const weatherCard = document.createElement('div');
   weatherCard.classList.add('weather-card');
+  weatherCard.style.scale = '0';
   cardContainer.appendChild(weatherCard);
+  setTimeout(() => {
+    weatherCard.style.scale = '1';
+  }, 150);
 
   //first row
   const firstRow = document.createElement('div');
@@ -99,14 +103,22 @@ const checkInputValidity = (input) => {
 const addEventToSearchBar = () => {
   const searchBar = document.querySelector('#search');
   const cardContainer = document.querySelector('.content');
+  const loadingGif = document.querySelector('.loading-gif');
   searchBar.addEventListener('change', () => {
+
     // removing old card
     if (cardContainer.children[0]) {
       cardContainer.children[0].remove();
     }
+
+    // add loading img
+    loadingGif.classList.remove('hidden');
+
     // get data
     getWeatherData(searchBar.value).then((dataObj) => {
-      // checking if there is data
+      // remove loading img
+      loadingGif.classList.add('hidden');
+      // checking if there is valid data
       if (!dataObj) {
         checkInputValidity(searchBar);
         return;

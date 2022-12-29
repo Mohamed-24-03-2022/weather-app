@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +19,7 @@
 body {
   background-color: #333;
   font-family: 'Roboto Condensed', sans-serif;
+  position: relative;
 }
 
 nav {
@@ -98,7 +110,6 @@ nav span:nth-child(2) {
   color: #fff;
 }
 
-
 /********************************* content *********************************/
 .content {
   padding: 30px 0;
@@ -108,8 +119,9 @@ nav span:nth-child(2) {
 }
 /********************************************/
 .weather-card {
-  /* width: 300px; */
   color: #ddd;
+  transition: all 350ms cubic-bezier(0, -0.16, 0.09, -0.15);
+  animation: fadeIn 1.5s;
 }
 /********************************************/
 .first-row,
@@ -166,4 +178,17 @@ nav span:nth-child(2) {
 }
 .details p {
   padding: 5px;
+}
+
+/********************************************/
+.loading-gif {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: calc(50% - 50px);
+}
+
+.hidden {
+  display: none;
 }
