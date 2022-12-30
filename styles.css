@@ -54,6 +54,7 @@ nav span:nth-child(2) {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  padding: 0 10px 0 0;
 }
 .github-profile:hover {
   background-color: #2e2e2e;
@@ -75,7 +76,7 @@ nav span:nth-child(2) {
 }
 .search-bar-container input {
   padding: 10px;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: bold;
   width: 350px;
   background-color: inherit;
@@ -96,9 +97,6 @@ nav span:nth-child(2) {
   border-radius: 5px;
   padding: 5px 20px;
   cursor: pointer;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 .search-icon button:hover {
   background-color: #404040;
@@ -191,4 +189,31 @@ nav span:nth-child(2) {
 
 .hidden {
   display: none;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .search-bar-container {
+    gap: 8%;
+  }
+  .search-bar-container  {
+    width: 100%;
+    padding: 15px 5px 20px 5px;
+    justify-content: flex-start;
+  }
+  .search-bar {
+    width: 70%;
+  }
+  .search-bar-container input {
+    width: 100%;
+    font-weight: normal;
+    font-size: 0.9rem;
+  }
+  .search-icon button {
+    scale: 0.9;
+  }
+  .weather-card {
+    scale: 0.9 !important;
+  }
 }

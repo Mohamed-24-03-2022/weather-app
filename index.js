@@ -84,10 +84,10 @@ const createWeatherCard = (data) => {
   secondRow.appendChild(detailsContainer);
   const humidity = document.createElement('p');
   humidity.classList.add('humidity');
-  humidity.textContent = data.humidity;
+  humidity.textContent = `Humidity ${data.humidity}`;
   const pressure = document.createElement('p');
   pressure.classList.add('pressure');
-  pressure.textContent = data.pressure;
+  pressure.textContent = `Pressure ${data.pressure}`;
   detailsContainer.append(humidity, pressure);
 };
 
