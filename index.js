@@ -2,25 +2,50 @@ const getDate = () => {
   return new Date().toLocaleDateString();
 };
 
-const getWeatherData = (cityName) => {
+//! promises using .then()
+// const getWeatherData = (cityName) => {
+//   const weather = {};
+//   return fetch(
+//     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=d614a6d2644e3139e11a7e49350a8908`,
+//     { mode: 'cors' }
+//   )
+//     .then((response) => response.json())
+//     .then((data) => {
+//       weather.country = data.sys.country;
+//       weather.cityName = data.name;
+//       weather.date = getDate();
+//       weather.temperature = `${data.main.temp}°C`;
+//       weather.humidity = `${data.main.humidity}%`;
+//       weather.pressure = `${data.main.pressure}hPa`;
+//       weather.description = data.weather[0].description;
+//       weather.icon = data.weather[0].icon;
+//       return weather;
+//     })
+//     .catch((err) => console.log('OOPS, there is an error ' + err));
+// };
+// getWeatherData('blida').then((obj) => console.log(obj));
+
+//! code refactor using async/await
+const getWeatherData = async (cityNameInput) => {
   const weather = {};
-  return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=d614a6d2644e3139e11a7e49350a8908`,
-    { mode: 'cors' }
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      weather.country = data.sys.country;
-      weather.cityName = data.name;
-      weather.date = getDate();
-      weather.temperature = `${data.main.temp}°C`;
-      weather.humidity = `${data.main.humidity}%`;
-      weather.pressure = `${data.main.pressure}hPa`;
-      weather.description = data.weather[0].description;
-      weather.icon = data.weather[0].icon;
-      return weather;
-    })
-    .catch((err) => console.log('OOPS, there is an error ' + err));
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityNameInput}&units=metric&appid=d614a6d2644e3139e11a7e49350a8908`,
+      { mode: 'cors' }
+    );
+    const data = await response.json();
+    weather.country = data.sys.country;
+    weather.cityName = data.name;
+    weather.date = getDate();
+    weather.temperature = `${data.main.temp}°C`;
+    weather.humidity = `${data.main.humidity}%`;
+    weather.pressure = `${data.main.pressure}hPa`;
+    weather.description = data.weather[0].description;
+    weather.icon = data.weather[0].icon;
+    return weather;
+  } catch (err) {
+    console.log('OOPS, there is an error ' + err);
+  }
 };
 // getWeatherData('blida').then((obj) => console.log(obj));
 
@@ -104,8 +129,8 @@ const addEventToSearchBar = () => {
   const searchBar = document.querySelector('#search');
   const cardContainer = document.querySelector('.content');
   const loadingGif = document.querySelector('.loading-gif');
-  searchBar.addEventListener('change', () => {
 
+  searchBar.addEventListener('change', () => {
     // removing old card
     if (cardContainer.children[0]) {
       cardContainer.children[0].remove();
